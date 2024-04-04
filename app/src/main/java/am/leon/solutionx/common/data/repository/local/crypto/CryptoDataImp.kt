@@ -1,6 +1,7 @@
-package am.leon.solutionx.common.data.repository.local
+package am.leon.solutionx.common.data.repository.local.crypto
 
-import am.leon.solutionx.common.domain.repository.local.ICryptoData
+import am.leon.solutionx.common.data.repository.local.keyValue.StorageKeyEnum
+import am.leon.solutionx.common.domain.repository.local.crypto.ICryptoData
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
 import java.security.KeyStore
@@ -9,6 +10,7 @@ import javax.crypto.KeyGenerator
 import javax.crypto.SecretKey
 import javax.crypto.spec.IvParameterSpec
 
+
 class CryptoDataImp : ICryptoData {
 
     private val keyStore = KeyStore.getInstance("AndroidKeyStore").apply {
@@ -16,7 +18,7 @@ class CryptoDataImp : ICryptoData {
     }
 
     private fun getKey(): SecretKey {
-        val existingKey = keyStore.getEntry("secret", null) as? KeyStore.SecretKeyEntry
+        val existingKey = keyStore.getEntry(KeyEnum.ALIAS_KEY.aliasKey, null) as? KeyStore.SecretKeyEntry
         return existingKey?.secretKey ?: createKey()
     }
 
@@ -24,7 +26,7 @@ class CryptoDataImp : ICryptoData {
         return KeyGenerator.getInstance(ALGORITHM).apply {
             init(
                 KeyGenParameterSpec.Builder(
-                    "secret",
+                    KeyEnum.ALIAS_KEY.aliasKey,
                     KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT
                 ).setBlockModes(BLOCK_MODE)
                     .setEncryptionPaddings(PADDING)

@@ -1,4 +1,4 @@
-package am.leon.solutionx.common.domain.repository.local
+package am.leon.solutionx.common.domain.repository.local.crypto
 
 interface ICryptoData {
     fun encrypt(bytes: ByteArray): ByteArray

@@ -2,7 +2,7 @@ package am.leon.solutionx.features.authentication.login.data.repository.local
 
 import am.leon.solutionx.android.extentions.toJson
 import am.leon.solutionx.common.data.repository.local.keyValue.StorageKeyEnum
-import am.leon.solutionx.common.domain.repository.local.ICryptoData
+import am.leon.solutionx.common.domain.repository.local.crypto.ICryptoData
 import am.leon.solutionx.common.domain.repository.local.keyValue.IStorageKeyValue
 import am.leon.solutionx.features.authentication.login.data.models.entity.LoginEntity
 import am.leon.solutionx.features.authentication.login.data.models.entity.UserEntity
@@ -11,7 +11,8 @@ import com.google.gson.Gson
 import java.util.Base64
 
 internal class LoginLocalDS(private val storageKV: IStorageKeyValue,
-    private val iCryptoData: ICryptoData) : ILoginLocalDS {
+    private val iCryptoData: ICryptoData
+) : ILoginLocalDS {
 
 
     override suspend fun saveLogin(login: LoginEntity) {
