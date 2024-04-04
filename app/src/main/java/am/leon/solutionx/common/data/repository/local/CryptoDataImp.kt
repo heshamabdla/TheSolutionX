@@ -1,6 +1,6 @@
-package am.leon.solutionx.features.authentication.login.data.repository.local
+package am.leon.solutionx.common.data.repository.local
 
-
+import am.leon.solutionx.common.domain.repository.local.ICryptoData
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
 import java.security.KeyStore
@@ -8,9 +8,8 @@ import javax.crypto.Cipher
 import javax.crypto.KeyGenerator
 import javax.crypto.SecretKey
 import javax.crypto.spec.IvParameterSpec
-import javax.crypto.spec.SecretKeySpec
 
-class CryptoData {
+class CryptoDataImp : ICryptoData {
 
     private val keyStore = KeyStore.getInstance("AndroidKeyStore").apply {
         load(null)
@@ -37,19 +36,20 @@ class CryptoData {
     private val cipher = Cipher.getInstance(TRANSFORMATION)
 
 
-    fun encrypt(bytes: ByteArray): ByteArray {
+    override fun encrypt(bytes: ByteArray): ByteArray {
         cipher.init(Cipher.ENCRYPT_MODE, getKey())
         val iv = cipher.iv
         val encrypted = cipher.doFinal(bytes)
         return iv + encrypted
     }
 
-    fun decrypt(bytes: ByteArray): ByteArray? {
+    override fun decrypt(bytes: ByteArray): ByteArray? {
         val iv = bytes.copyOfRange(0, cipher.blockSize)
         val data = bytes.copyOfRange(cipher.blockSize, bytes.size)
         cipher.init(Cipher.DECRYPT_MODE, getKey(), IvParameterSpec(iv))
         return cipher.doFinal(data)
     }
+
 
     companion object {
         private const val ALGORITHM = KeyProperties.KEY_ALGORITHM_AES
@@ -57,4 +57,7 @@ class CryptoData {
         private const val PADDING = KeyProperties.ENCRYPTION_PADDING_PKCS7
         private const val TRANSFORMATION = "$ALGORITHM/$BLOCK_MODE/$PADDING"
     }
+
+
+
 }

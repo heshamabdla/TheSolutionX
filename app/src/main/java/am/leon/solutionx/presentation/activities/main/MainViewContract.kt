@@ -7,7 +7,7 @@ import am.leon.solutionx.common.presentation.ViewState
 
 interface MainViewContract {
     sealed class MainAction : ViewAction {
-        data class LoginWithEmail(val email: String, val password: String) : MainAction()
+        data class LoginWithPhone(val email: String, val password: String) : MainAction()
     }
 
     sealed class MainEvent : ViewEvent {

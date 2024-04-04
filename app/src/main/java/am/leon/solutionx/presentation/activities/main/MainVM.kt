@@ -36,7 +36,7 @@ class MainVM @Inject constructor(
     override fun onActionTrigger(action: ViewAction?) {
         setState(oldViewState.copy(action = action))
         when (action) {
-            is MainAction.LoginWithEmail -> loginWithPhone(action.email, action.password)
+            is MainAction.LoginWithPhone -> loginWithPhone(action.email, action.password)
         }
     }
 

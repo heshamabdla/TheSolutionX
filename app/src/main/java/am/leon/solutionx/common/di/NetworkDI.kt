@@ -1,7 +1,5 @@
 package am.leon.solutionx.common.di
 
-import am.leon.solutionx.BuildConfig
-import am.leon.solutionx.android.helpers.logging.getClassLogger
 import am.leon.solutionx.common.data.repository.remote.ApiService
 import am.leon.solutionx.common.data.repository.remote.RetrofitRestApiNetworkProvider
 import am.leon.solutionx.common.domain.repository.remote.IRestApiNetworkProvider
@@ -13,7 +11,6 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.Cache
 import okhttp3.ConnectionPool
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File

@@ -9,12 +9,12 @@
     tools:context=".presentation.activities.main.MainActivity">
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_fetchData"
+        android:id="@+id/LoginWithPhone"
         style="@style/Button"
         android:layout_margin="20dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
-        android:text="Fetch Data" />
+        android:text="Login With phone" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_singleSelection"

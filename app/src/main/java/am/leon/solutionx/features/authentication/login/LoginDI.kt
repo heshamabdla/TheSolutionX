@@ -1,5 +1,7 @@
 package am.leon.solutionx.features.authentication.login
 
+import am.leon.solutionx.common.data.repository.local.CryptoDataImp
+import am.leon.solutionx.common.domain.repository.local.ICryptoData
 import am.leon.solutionx.common.domain.repository.local.keyValue.IStorageKeyValue
 import am.leon.solutionx.common.domain.repository.remote.IRestApiNetworkProvider
 import am.leon.solutionx.features.authentication.login.data.repository.LoginRepository
@@ -23,8 +25,13 @@ internal object LoginDI {
         LoginRemoteDS(networkProvider)
 
     @Provides
-    fun provideLocalDS(storageKeyValue: IStorageKeyValue): ILoginLocalDS =
-        LoginLocalDS(storageKeyValue)
+    fun provideCryptoData(): ICryptoData = CryptoDataImp()
+    @Provides
+    fun provideLocalDS(storageKeyValue: IStorageKeyValue,
+                       cryptoData: ICryptoData): ILoginLocalDS =
+        LoginLocalDS(storageKeyValue,cryptoData)
+
+
 
     @Provides
     fun provideRepository(remoteDS: ILoginRemoteDS, localDS: ILoginLocalDS): ILoginRepository =

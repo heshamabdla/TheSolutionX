@@ -40,9 +40,9 @@ class MainActivity : AppCompatActivity(), SingleSelectionCallback {
         viewInit()
         subscribeToObservables()
 
-        binding.btnFetchData.setOnClickListener {
+        binding.LoginWithPhone.setOnClickListener {
             mainVM.onActionTrigger(
-                MainViewContract.MainAction.LoginWithEmail(
+                MainViewContract.MainAction.LoginWithPhone(
                     "100100100",
                     "123456789"
                 )
