@@ -5,7 +5,6 @@ import am.leon.solutionx.features.authentication.login.data.models.dto.LoginDto
 import am.leon.solutionx.features.authentication.login.data.models.request.LoginRequest
 import am.leon.solutionx.features.authentication.login.domain.repository.remote.ILoginRemoteDS
 
-// [feature]  layer
 
 internal class LoginRemoteDS(private val provider: IRestApiNetworkProvider) : ILoginRemoteDS {
     override suspend fun loginWithEmail(email: String, password: String): LoginDto {

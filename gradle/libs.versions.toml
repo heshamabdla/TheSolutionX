@@ -11,10 +11,16 @@ material = "1.11.0"
 fragment = "1.6.2"
 activity = "1.8.2"
 constraintlayout = "2.1.4"
+kotlinxCoroutinesTest = "1.5.2"
 intuit = "1.1.0"
 recyclerview = "1.3.2"
 gson = "2.10.1"
 hilt = "2.51"
+truth = "1.1.3"
+mockitoCore = "3.11.2"
+mockwebserver = "4.11.0"
+junitJupiter = "5.8.1"
+
 
 
 
@@ -30,6 +36,11 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
+
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockitoCore" }
+mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "mockwebserver" }
+
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTest" }
 androidx-lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
 androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleLivedataKtx" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
@@ -38,6 +49,9 @@ androidx-fragment = { group = "androidx.fragment", name = "fragment-ktx", versio
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+truth = { module = "com.google.truth:truth", version.ref = "truth" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junitJupiter" }
+
 
 
 

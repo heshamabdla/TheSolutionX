@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity(), SingleSelectionCallback {
             insets
         }
         viewInit()
-        subscribeToObservables()
+
 
         binding.LoginWithPhone.setOnClickListener {
             mainVM.onActionTrigger(
@@ -48,9 +48,6 @@ class MainActivity : AppCompatActivity(), SingleSelectionCallback {
                 )
             )
         }
-    }
-
-    private fun subscribeToObservables() {
     }
 
     private fun viewInit() = with(binding) {

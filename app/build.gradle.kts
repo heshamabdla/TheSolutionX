@@ -117,5 +117,31 @@ dependencies {
     // Hilt
     implementation(libs.google.hilt.android)
     kapt(libs.google.hilt.android.compiler)
+//
+//    testImplementation ("android.arch.core:core-testing:1.1.1")
+//    testImplementation ("com.google.truth:truth:1.1")
+
+// For Robolectric tests.
+    testImplementation("com.google.dagger:hilt-android-testing:2.28-alpha")
+// For instrumented tests.
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.28-alpha")
+// ...with Kotlin.
+    kaptTest("com.google.dagger:hilt-android-compiler:2.40.5")
+
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.truth)
+    testImplementation(libs.junit)
+    testImplementation(libs.junit.jupiter)
+
+
+    androidTestImplementation(libs.mockwebserver)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.mockito.core)
+
+
+
 
 }
